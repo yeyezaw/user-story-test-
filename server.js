@@ -22,6 +22,9 @@ app.use(bodyParser.json());
 //Morgan
 app.use(morgan('dev'));
 
+//api middleware (localhost:2000/api/signup) into POSTMAN test
+var api = require('./app/routes/api')(app,express);
+app.use('/api', api);
 
 //Routes
 app.get('/', function(req,res){
